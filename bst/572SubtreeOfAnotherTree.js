@@ -39,3 +39,28 @@ function isSameTree(p, q) {
 // The function is efficient and straightforward, leveraging recursion to explore the tree structure and check for subtree presence.
 // The function is designed to handle various tree structures, including balanced and unbalanced trees, and efficiently checks for subtree presence in a single traversal.
 // The final result is returned as a boolean indicating whether the subtree exists within the main tree.
+var isSubtree= function (root, subRoot) {
+    // Serialize tree with structure markers to avoid ambiguity
+    function serialize(node) {
+        if (!node) return "#"; // Special marker for nulls
+        return `,${node.val}${serialize(node.left)}${serialize(node.right)}`;
+    }
+
+    const rootStr = serialize(root);
+    const subStr = serialize(subRoot);
+
+    return rootStr.includes(subStr);
+};
+// Time Complexity: O(m + n), where m is the number of nodes in the main tree (root) and n is the number of nodes in the subtree (subRoot).
+// Space Complexity: O(m + n), where m is the size of the serialized string for the main tree and n is the size of the serialized string for the subtree.  
+// Approach: The function uses a serialization technique to convert both the main tree and the subtree into strings.
+// It serializes the trees in a way that includes structure markers (e.g., `#` for null nodes) to avoid ambiguity.
+// The serialized strings are then compared using the `includes` method to check if the subtree's string is present in the main tree's string.
+// This approach is efficient as it reduces the problem to a string search, leveraging the properties of serialization.
+// The function is designed to handle various tree structures, including balanced and unbalanced trees, and efficiently checks for subtree presence using string matching.
+// The final result is returned as a boolean indicating whether the subtree exists within the main tree.
+// This method is particularly useful for problems where tree structure and node values need to be compared in a straightforward manner.
+// The serialization approach simplifies the comparison by transforming the tree structure into a linear representation, making it easier to check for subtree presence.
+// The function is efficient and straightforward, leveraging serialization to explore the tree structure and check for subtree presence.
+// The function is designed to handle various tree structures, including balanced and unbalanced trees, and efficiently checks for subtree presence in a single traversal.
+// The final result is returned as a boolean indicating whether the subtree exists within the main tree.    
