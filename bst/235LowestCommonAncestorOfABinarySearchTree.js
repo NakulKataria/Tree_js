@@ -62,3 +62,7 @@ var lowestCommonAncestor = function(root, p, q) {
 // If the current node's value is less than both p and q, it moves to the right subtree; if greater, it moves to the left subtree.
 // If the current node's value is between p and q, it is the lowest common ancestor, and the function returns that node.
 // The function is efficient and straightforward, leveraging the properties of BSTs to find the LCA without needing to traverse the entire tree.    
+
+
+
+//pro tip :use p and q as actualobjects of tree node === compares address or refrence otherwise
